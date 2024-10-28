@@ -1,6 +1,7 @@
 import "@/app/ui/global.css";
 import { inter } from "@/app/ui/fonts";
 import Navbar from "@/app/ui/navbar"; // Adjust the import path as necessary
+import Footer from "@/app/ui/footer";
 
 export default function RootLayout({
   children,
@@ -9,11 +10,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} antialiased`}>
+      <body className={`${inter.className} antialiased flex flex-col min-h-screen`}>
         <div className="w-full flex-none md:w-full">
           <Navbar />
         </div>
-        {children}
+        <div className="flex-grow">
+          {children}
+        </div>
+        <div className="flex-none">
+          <Footer />
+        </div>
       </body>
     </html>
   );
