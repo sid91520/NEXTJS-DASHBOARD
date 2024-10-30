@@ -5,9 +5,17 @@ import Link from "next/link";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState("/"); // State to track the active link
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleLinkClick = (link) => {
+    setActiveLink(link); // Update the active link
+    if (isOpen) {
+      toggleMenu(); // Close the menu if it's open on mobile
+    }
   };
 
   return (
@@ -17,16 +25,32 @@ const Navbar = () => {
           <AcmeLogo />
         </div>
         <div className="hidden md:flex space-x-4">
-          <Link href="/" className="text-gray-300 hover:text-white">
+          <Link
+            href="/"
+            className={`text-gray-300 hover:text-white ${activeLink === "/" ? "underline" : ""}`}
+            onClick={() => handleLinkClick("/")}
+          >
             Home
           </Link>
-          <Link href="/dashboard" className="text-gray-300 hover:text-white">
+          <Link
+            href="/dashboard"
+            className={`text-gray-300 hover:text-white ${activeLink === "/dashboard" ? "underline" : ""}`}
+            onClick={() => handleLinkClick("/dashboard")}
+          >
             Dashboard
           </Link>
-          <Link href="/about" className="text-gray-300 hover:text-white">
+          <Link
+            href="/about"
+            className={`text-gray-300 hover:text-white ${activeLink === "/about" ? "underline" : ""}`}
+            onClick={() => handleLinkClick("/about")}
+          >
             About
           </Link>
-          <Link href="/contact" className="text-gray-300 hover:text-white">
+          <Link
+            href="/contact"
+            className={`text-gray-300 hover:text-white ${activeLink === "/contact" ? "underline" : ""}`}
+            onClick={() => handleLinkClick("/contact")}
+          >
             Contact
           </Link>
         </div>
@@ -71,16 +95,32 @@ const Navbar = () => {
       </div>
       {isOpen && (
         <div className="md:hidden">
-          <Link href="/" className="text-gray-300 hover:text-white">
+          <Link
+            href="/"
+            className={`text-gray-300 hover:text-white ${activeLink === "/" ? "underline" : ""}`}
+            onClick={() => handleLinkClick("/")}
+          >
             Home
           </Link>
-          <Link href="/dashboard" className="text-gray-300 hover:text-white">
+          <Link
+            href="/dashboard"
+            className={`text-gray-300 hover:text-white ${activeLink === "/dashboard" ? "underline" : ""}`}
+            onClick={() => handleLinkClick("/dashboard")}
+          >
             Dashboard
           </Link>
-          <Link href="/about" className="text-gray-300 hover:text-white">
+          <Link
+            href="/about"
+            className={`text-gray-300 hover:text-white ${activeLink === "/about" ? "underline" : ""}`}
+            onClick={() => handleLinkClick("/about")}
+          >
             About
           </Link>
-          <Link href="/contact" className="text-gray-300 hover:text-white">
+          <Link
+            href="/contact"
+            className={`text-gray-300 hover:text-white ${activeLink === "/contact" ? "underline" : ""}`}
+            onClick={() => handleLinkClick("/contact")}
+          >
             Contact
           </Link>
         </div>
