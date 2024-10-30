@@ -11,7 +11,7 @@ const Navbar = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleLinkClick = (link) => {
+  const handleLinkClick = (link: React.SetStateAction<string>) => {
     setActiveLink(link); // Update the active link
     if (isOpen) {
       toggleMenu(); // Close the menu if it's open on mobile
