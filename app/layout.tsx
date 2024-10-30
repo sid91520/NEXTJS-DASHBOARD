@@ -17,7 +17,7 @@ export default function RootLayout({
         <div className="flex-grow">
           {children}
         </div>
-        <div className="flex-none">
+        <div className="w-full flex-none md:w-full">
           <Footer />
         </div>
       </body>
